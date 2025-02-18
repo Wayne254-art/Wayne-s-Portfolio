@@ -58,11 +58,11 @@ const Hero = () => {
             <div className='mt-10'>
               <h1 className='font-bold text-gray-200 text-2xl'>Best Skilled On</h1>
               <div className='mt-4 flex justify-center lg:justify-start space-x-6'>
-                <div className='w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center shadow hover:bg-gray-300 transition'><FaReact className='text-blue-500 text-4xl' /></div>
-                <div className='w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center shadow hover:bg-gray-300 transition'><FaJs className='text-yellow-500 text-4xl' /></div>
-                <div className='w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center shadow hover:bg-gray-300 transition'><FaNode className='text-green-600 text-4xl' /></div>
-                <div className='w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center shadow hover:bg-gray-300 transition'><SiMongodb className='text-green-900 text-4xl' /></div>
-                <div className='w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center shadow hover:bg-gray-300 transition'><SiSequelize className='text-orange-500 text-4xl' /></div>
+                <div className='w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center shadow hover:bg-gray-300 transition'><FaReact className='text-blue-500 text-4xl' /></div>
+                <div className='w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center shadow hover:bg-gray-300 transition'><FaJs className='text-yellow-500 text-4xl' /></div>
+                <div className='w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center shadow hover:bg-gray-300 transition'><FaNode className='text-green-600 text-4xl' /></div>
+                <div className='w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center shadow hover:bg-gray-300 transition'><SiMongodb className='text-green-900 text-4xl' /></div>
+                <div className='w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center shadow hover:bg-gray-300 transition'><SiSequelize className='text-orange-500 text-4xl' /></div>
               </div>
             </div>
           </div>
