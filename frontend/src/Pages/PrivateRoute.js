@@ -1,28 +1,23 @@
-
-import React, { useEffect, useState } from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
-import api from '../api/api';
+import React, { useEffect, useState } from "react";
+import { Navigate, Outlet } from "react-router-dom";
 
 const PrivateRoute = () => {
-    const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const checkAuth = async () => {
-            try {
-                const res = await api.get('/check-auth', { withCredentials: true });
-                setIsAuthenticated(res.data.isAuthenticated);
-            } catch {
-                setIsAuthenticated(false);
-            }
-        };
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken")
+    if (token) {
+      setIsAuthenticated(true);
+    }
+    setLoading(false);
+  }, [])
 
-        checkAuth();
-    }, []);
+  if (loading) {
+    return <div>Loading...</div>
+  }
 
-    if (isAuthenticated === null) return <p>Loading...</p>;
-
-    return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
 export default PrivateRoute;
-

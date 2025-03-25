@@ -1,33 +1,24 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { IoMdArrowRoundForward } from "react-icons/io";
 import { MdFavoriteBorder } from "react-icons/md";
 import { FaCommentDots } from "react-icons/fa";
 
 const ProjectsPage = () => {
-    const projects = [
-        {
-            id: 1,
-            title: 'Cottage Home Care',
-            description: 'MERN Stack Project',
-            image: 'https://via.placeholder.com/400x300',
-            likes: 105,
-        },
-        {
-            id: 2,
-            title: 'Brooklyn Institute',
-            description: 'MERN Stack Project',
-            image: 'https://via.placeholder.com/400x300',
-            likes: 103,
-        },
-        {
-            id: 3,
-            title: 'Minimalist Furniture BD',
-            description: 'MERN Stack Project',
-            image: 'https://via.placeholder.com/400x300',
-            likes: 111,
-        },
-    ];
+    const [projects, setProjects] = useState([]);
+
+    // Fetch projects from the backend
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const response = await axios.get('http://localhost:8081/api/all-projects');
+                setProjects(response.data);
+            } catch (error) {
+                console.error("Error fetching projects:", error);
+            }
+        };
+        fetchProjects();
+    }, []);
 
     return (
         <section className="bg-gray-100 py-16 px-6">
@@ -37,7 +28,7 @@ const ProjectsPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project) => (
                         <div
-                            key={project.id}
+                            key={project._id} // Use _id from MongoDB as the key
                             className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200"
                         >
                             <img
@@ -47,9 +38,14 @@ const ProjectsPage = () => {
                             />
                             <div className="p-6">
                                 <div className='flex flex-row items-center justify-between'>
-                                    <h2 className="text-xl font-bold text-gray-800 mb-2">
-                                        {project.title}
-                                    </h2>
+                                    <div className='flex flex-col'>
+                                        <h2 className='text-2xl font-bold text-gray-800 mb-2'>
+                                            {project.language}
+                                        </h2>
+                                        <h2 className="text-md font-bold text-gray-800 mb-2">
+                                            {project.language}
+                                        </h2>
+                                    </div>
                                     <span className="text-gray-600 text-sm flex items-center">
                                         <MdFavoriteBorder className='text-blue-500 mr-1 text-2xl' />
                                         {project.likes}
@@ -78,4 +74,3 @@ const ProjectsPage = () => {
 };
 
 export default ProjectsPage;
-

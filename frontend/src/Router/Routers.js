@@ -6,6 +6,7 @@ import ProjectsPage from '../Pages/ProjectsPage'
 import Login from '../Pages/Login'
 import Dashboard from '../Pages/Dashboard'
 import PrivateRoute from '../Pages/PrivateRoute'
+import AddProjects from '../Pages/AddProjects'
 
 const Routers = () => {
   return (
@@ -17,6 +18,7 @@ const Routers = () => {
       <Route path='/login' element={<Login />} />
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/add-project" element={<AddProjects />} />
       </Route>
     </Routes>
   )
